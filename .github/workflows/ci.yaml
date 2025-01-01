@@ -110,6 +110,8 @@ jobs:
           images: |
             ${{ env.GHCR_REPO }}
           tags: |
+            latest
+            ${{ github.run_number }}
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
