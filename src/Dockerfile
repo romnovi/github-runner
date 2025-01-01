@@ -1,5 +1,6 @@
 FROM debian:stable-slim
 
+ARG RUNNER_PLATFORM=""
 ARG RUNNER_VERSION="2.321.0"
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -26,10 +27,10 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 
 # Set up the actions runner
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
-    && curl -o actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+    && curl -o actions-runner-${RUNNER_PLATFORM}-${RUNNER_VERSION}.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${RUNNER_PLATFORM}-${RUNNER_VERSION}.tar.gz \
+    && tar xzf actions-runner-${RUNNER_PLATFORM}-${RUNNER_VERSION}.tar.gz
 
-RUN rm /home/docker/actions-runner/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+RUN rm /home/docker/actions-runner/actions-runner-${RUNNER_PLATFORM}-${RUNNER_VERSION}.tar.gz
 
 # Change ownership to docker user and install dependencies
 RUN chown -R docker /home/docker && /home/docker/actions-runner/bin/installdependencies.sh

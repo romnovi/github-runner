@@ -12,6 +12,12 @@ jobs:
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        platform: [linux/amd64]
+        include:
+          - platform: linux/amd64
+            runner_platform: linux-amd64
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,5 +39,6 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: ghcr.io/mystdeim/github-runner:${{ github.run_number }}
+          platforms: ${{ matrix.platform }}
           build-args: |
-            BUILD_NUMBER=${{ github.run_number }}
+            RUNNER_PLATFORM=${{ matrix.runner_platform }}
