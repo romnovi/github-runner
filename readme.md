@@ -18,6 +18,7 @@ sudo chmod 666 /var/run/docker.sock
 ```
 
 Run it with one-liner:
+
 ```shell
 docker run --rm \
   -e ORG=myorg \
@@ -28,6 +29,7 @@ docker run --rm \
 ```
 
 Docker compose or swarm example:
+
 ```yaml
 services:
   runner:
