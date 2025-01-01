@@ -14,10 +14,12 @@ jobs:
       packages: write
     strategy:
       matrix:
-        platform: [linux/amd64]
+        platform: [linux/amd64, linux/arm64]
         include:
           - platform: linux/amd64
             runner_platform: linux-x64
+          - platform: linux/arm64
+            runner_platform: linux-arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v4
