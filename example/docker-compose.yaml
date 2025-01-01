@@ -1,0 +1,9 @@
+services:
+  runner:
+    image: ghcr.io/mystdeim/github-runner:latest
+    environment:
+      - ORG=myorg
+      - ACCESS_TOKEN=github_pat_...
+      - NAME=self-hosted
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
