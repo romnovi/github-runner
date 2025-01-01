@@ -1,6 +1,6 @@
 # Github-runner
 This is a production-ready self-hosted runner wrapped into the container.
-You need only PAT token and your organization name for start it.
+You need only PAT token and your organization name to start it.
 Currently, it works on linux and supports 3 platforms:
 - x64
 - arm64
