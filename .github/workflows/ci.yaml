@@ -38,7 +38,9 @@ jobs:
           context: ./src
           file: ./src/Dockerfile
           push: true
-          tags: ghcr.io/mystdeim/github-runner:${{ github.run_number }}
+          tags: |
+            ghcr.io/mystdeim/github-runner:${{ github.run_number }}
+            ghcr.io/mystdeim/github-runner:latest
           platforms: ${{ matrix.platform }}
           build-args: |
             RUNNER_PLATFORM=${{ matrix.runner_platform }}
