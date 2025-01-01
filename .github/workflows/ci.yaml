@@ -60,9 +60,6 @@ jobs:
           file: ./src/Dockerfile
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            ${{ env.GHCR_REPO }}:${{ github.run_number }}
-            ${{ env.GHCR_REPO }}:latest
           outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true,push=true
           build-args: |
             RUNNER_PLATFORM=${{ matrix.runner_platform }}
