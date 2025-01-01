@@ -17,7 +17,7 @@ jobs:
         platform: [linux/amd64]
         include:
           - platform: linux/amd64
-            runner_platform: linux-amd64
+            runner_platform: linux-x64
     steps:
       - name: Checkout
         uses: actions/checkout@v4
