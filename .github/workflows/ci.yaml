@@ -17,12 +17,14 @@ jobs:
       packages: write
     strategy:
       matrix:
-        platform: [linux/amd64, linux/arm64]
+        platform: [linux/amd64, linux/arm64, linux/arm/v7]
         include:
           - platform: linux/amd64
             runner_platform: linux-x64
           - platform: linux/arm64
             runner_platform: linux-arm64
+          - platform: linux/arm/v7
+            runner_platform: linux-arm
     steps:
       - name: Prepare
         run: |
