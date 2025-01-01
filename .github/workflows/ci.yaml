@@ -26,8 +26,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./src
+          file: ./src/Dockerfile
           push: true
           tags: ghcr.io/mystdeim/github-runner:${{ github.run_number }}
           build-args: |
