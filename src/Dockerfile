@@ -14,7 +14,8 @@ RUN apt-get update && \
     ca-certificates \
     curl \
     jq \
-    gnupg
+    gnupg \
+    g++
 
 # Set up Docker repository
 RUN install -m 0755 -d /etc/apt/keyrings
