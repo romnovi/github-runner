@@ -25,7 +25,7 @@ docker run --rm \
   -e ACCESS_TOKEN=github_pat_... \
   -e NAME=self-hosted \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  ghcr.io/mystdeim/github-runner:latest
+  ghcr.io/romnovi/github-runner:latest
 ```
 
 Docker compose or swarm example:
@@ -33,7 +33,7 @@ Docker compose or swarm example:
 ```yaml
 services:
   runner:
-    image: ghcr.io/mystdeim/github-runner:latest
+    image: ghcr.io/romnovi/github-runner:latest
     environment:
       - ORG=myorg
       - ACCESS_TOKEN=github_pat_...

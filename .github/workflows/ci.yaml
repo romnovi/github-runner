@@ -6,7 +6,7 @@ on:
       - 'main'
 
 env:
-  GHCR_REPO: ghcr.io/mystdeim/github-runner
+  GHCR_REPO: ghcr.io/romnovi/github-runner
 
 jobs:
   build:

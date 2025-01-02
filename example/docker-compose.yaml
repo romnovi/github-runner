@@ -1,6 +1,6 @@
 services:
   runner:
-    image: ghcr.io/mystdeim/github-runner:latest
+    image: ghcr.io/romnovi/github-runner:latest
     environment:
       - ORG=myorg
       - ACCESS_TOKEN=github_pat_...
