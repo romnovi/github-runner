@@ -15,7 +15,7 @@ RUN apt-get update && \
     curl \
     jq \
     gnupg \
-    g++
+    g++ build-essential
 
 # Set up Docker repository
 RUN install -m 0755 -d /etc/apt/keyrings
