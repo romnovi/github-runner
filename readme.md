@@ -41,3 +41,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
+
+Build locally:
+
+```yaml
+docker build -t github-runner src --build-arg RUNNER_PLATFORM=linux-x64
+docker build -t github-runner src --build-arg RUNNER_PLATFORM=linux-arm64
+```

@@ -1,8 +1,7 @@
-FROM debian:stable-slim
+FROM ubuntu:22.04
 
 ARG RUNNER_PLATFORM=""
 ARG RUNNER_VERSION="2.321.0"
-ARG DEBIAN_FRONTEND=noninteractive
 
 # Update and upgrade the system
 RUN apt update -y && apt upgrade -y
@@ -16,11 +15,13 @@ RUN apt-get update && \
     curl \
     jq \
     gnupg
+
+# Set up Docker repository
 RUN install -m 0755 -d /etc/apt/keyrings
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 RUN chmod a+r /etc/apt/keyrings/docker.asc
 RUN echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
       $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
       tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update && apt-get install -y docker-ce-cli
