@@ -6,7 +6,7 @@ Currently, it works on linux and supports 3 platforms:
 - arm64
 - arm v7
 
-I wrote a small instruction how to get PAT token here: [getting-pat-token](https://romanovi.dev/notes/github_1/#getting-pat-token)
+I wrote a small instruction how to get PAT token here: [getting-pat-token](https://romnovi.dev/notes/github_1/#getting-pat-token)
 
 ## How to use:
 
