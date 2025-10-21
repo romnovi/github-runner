@@ -48,3 +48,25 @@ Build locally:
 docker build -t github-runner src --build-arg RUNNER_PLATFORM=linux-x64
 docker build -t github-runner src --build-arg RUNNER_PLATFORM=linux-arm64
 ```
+
+## Building Custom Images
+
+If you need to add additional tools or dependencies to the runner, you can create a custom image using `ghcr.io/romnovi/github-runner` as a base image.
+
+Example Dockerfile:
+
+```dockerfile
+FROM ghcr.io/romnovi/github-runner:latest
+
+USER root
+
+# Install additional tools
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+USER docker
+```
+
+For a complete example, see the [custom-image example](example/custom-image/).

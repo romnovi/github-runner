@@ -1,0 +1,13 @@
+services:
+  custom-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: custom-github-runner:latest
+    environment:
+      - ORG=myorg
+      - ACCESS_TOKEN=github_pat_...
+      - NAME=self-hosted-custom
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
